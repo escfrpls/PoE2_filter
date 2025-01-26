@@ -5,29 +5,29 @@
 #include <unordered_map>
 #include <set>
 
-// Структура для категорий и подкатегорий
+// Structure for categories and subcategories
 struct Category {
     std::string name;
     std::vector<std::string> subcategories;
-    std::unordered_map<std::string, std::vector<std::string>> baseItems; // Для хранения баз предметов по подкатегориям
+    std::unordered_map<std::string, std::vector<std::string>> baseItems; // To store base items by subcategories
 };
 
-// Функция для отображения списка опций
+// Function to display options list
 void displayOptions(const std::vector<std::string>& options) {
     for (size_t i = 0; i < options.size(); ++i) {
         std::cout << i + 1 << ". " << options[i] << "\n";
     }
-    std::cout << "Введите номера выбранных опций через запятую (например, 1,3,4): ";
+    std::cout << "Enter the numbers of the selected options separated by commas (e.g., 1,3,4): ";
 }
 
-// Функция для выбора нескольких опций
+// Function to select multiple options
 std::vector<int> getMultipleChoices(const std::vector<std::string>& options) {
     std::string input;
     std::vector<int> choices;
 
     while (true) {
         displayOptions(options);
-        std::getline(std::cin, input);  // Получаем строку ввода
+        std::getline(std::cin, input);  // Get input string
 
         std::stringstream ss(input);
         int choice;
@@ -39,32 +39,32 @@ std::vector<int> getMultipleChoices(const std::vector<std::string>& options) {
                 validInput = false;
                 break;
             }
-            choices.push_back(choice - 1); // Сохраняем индекс выбора
-            if (ss.peek() == ',') ss.ignore(); // Пропускаем запятую
+            choices.push_back(choice - 1); // Save the choice index
+            if (ss.peek() == ',') ss.ignore(); // Skip the comma
         }
 
         if (validInput && !choices.empty()) {
             return choices;
         } else {
-            std::cout << "Некорректный ввод, попробуйте снова.\n";
+            std::cout << "Invalid input, please try again.\n";
         }
     }
 }
 
-// Функция для обработки выбора добавления или удаления нескольких предметов
+// Function to handle adding or removing multiple items
 void handleItemsAction(const std::vector<std::string>& items, std::set<std::string>& filterItems) {
-    std::cout << "Выберите предметы:\n";
+    std::cout << "Choose items:\n";
     std::vector<int> choices = getMultipleChoices(items);
 
-    std::cout << "Вы выбрали следующие предметы:\n";
+    std::cout << "You selected the following items:\n";
     for (int idx : choices) {
         std::cout << items[idx] << "\n";
     }
 
-    // Меню с добавлением или удалением
-    std::cout << "Выберите действие:\n";
-    std::cout << "A - Добавить в фильтр\n";
-    std::cout << "D - Удалить из фильтра\n";
+    // Menu for adding or removing
+    std::cout << "Choose an action:\n";
+    std::cout << "A - Add to filter\n";
+    std::cout << "D - Remove from filter\n";
     char action;
     std::cin >> action;
 
@@ -73,17 +73,17 @@ void handleItemsAction(const std::vector<std::string>& items, std::set<std::stri
 
         if (action == 'A' || action == 'a') {
             filterItems.insert(selectedItem);
-            std::cout << selectedItem << " добавлен в фильтр.\n";
+            std::cout << selectedItem << " added to filter.\n";
         } else if (action == 'D' || action == 'd') {
             filterItems.erase(selectedItem);
-            std::cout << selectedItem << " удалён из фильтра.\n";
+            std::cout << selectedItem << " removed from filter.\n";
         } else {
-            std::cout << "Неверное действие для предмета: " << selectedItem << "\n";
+            std::cout << "Invalid action for item: " << selectedItem << "\n";
         }
     }
 }
 
-// Функция для выбора одного элемента
+// Function to select a single item
 int getSingleChoice(const std::vector<std::string>& options) {
     std::string input;
     while (true) {
@@ -93,19 +93,19 @@ int getSingleChoice(const std::vector<std::string>& options) {
         try {
             int choice = std::stoi(input);
             if (choice >= 1 && choice <= static_cast<int>(options.size())) {
-                return choice - 1; // Индексы начинаются с 0
+                return choice - 1; // Indices start from 0
             } else {
-                std::cout << "Некорректный выбор, попробуйте снова.\n";
+                std::cout << "Invalid choice, please try again.\n";
             }
         } catch (const std::invalid_argument&) {
-            std::cout << "Некорректный ввод, попробуйте снова.\n";
+            std::cout << "Invalid input, please try again.\n";
         }
     }
 }
 
-// Основное меню
+// Main menu
 void mainMenu() {
-    // Категории и их подкатегории
+    // Categories and their subcategories
     std::unordered_map<std::string, Category> categories = {
         {"One-Handed Weapons", {"One-Handed Weapons", {"Wands", "One-Handed Maces", "Sceptres"}, {}}},
         {"Two-Handed Weapons", {"Two-Handed Weapons", {"Bows", "Staves", "Two Hand Swords", "Two Hand Axes", "Two Hand Maces", "Quarterstaves", "Crossbows"}, {}}},
@@ -118,7 +118,7 @@ void mainMenu() {
         {"Jewels", {"Jewels", {"Jewels"}, {}}}
     };
 
-    // Пример для баз предметов
+    // Example for base items
     categories["One-Handed Weapons"].baseItems["Wands"] = {
         "Driftwood Wand", "Goat's Horn", "Quartz Wand", "Spiraled Wand", "Omen Wand",
         "Heathen Wand", "Profane Wand", "Opal Wand", "Tornado Wand", "Fossilised Wand",
@@ -162,11 +162,11 @@ void mainMenu() {
         "Distilled Disgust", "Distilled Fear", "Distilled Guilt", "Distilled Isolation",  "Distilled Suffering"
     };
 
-    // Множество для хранения фильтрованных предметов
+    // Set to store filtered items
     std::set<std::string> filterItems;
 
-    // Выбор основной категории
-    std::cout << "Выберите основную категорию:\n";
+    // Select main category
+    std::cout << "Select a main category:\n";
     std::vector<std::string> mainCategories;
     for (const auto& category : categories) {
         mainCategories.push_back(category.first);
@@ -175,26 +175,26 @@ void mainMenu() {
     int mainChoice = getSingleChoice(mainCategories);
     const auto& selectedCategory = categories[mainCategories[mainChoice]];
 
-    std::cout << "Вы выбрали: " << selectedCategory.name << "\n";
-    std::cout << "Выберите подкатегорию:\n";
+    std::cout << "You selected: " << selectedCategory.name << "\n";
+    std::cout << "Select a subcategory:\n";
 
     int subChoice = getSingleChoice(selectedCategory.subcategories);
 
     const auto& subcategoryName = selectedCategory.subcategories[subChoice];
-    std::cout << "Вы выбрали подкатегорию: " << subcategoryName << "\n";
+    std::cout << "You selected subcategory: " << subcategoryName << "\n";
 
     try {
         if (selectedCategory.baseItems.find(subcategoryName) != selectedCategory.baseItems.end()) {
             handleItemsAction(selectedCategory.baseItems.at(subcategoryName), filterItems);
         } else {
-            std::cout << "Подкатегория " << subcategoryName << " пока не реализована.\n";
+            std::cout << "Subcategory " << subcategoryName << " is not implemented yet.\n";
         }
     } catch (const std::out_of_range& e) {
-        std::cout << "Ошибка: подкатегория не найдена.\n";
+        std::cout << "Error: subcategory not found.\n";
     }
 
-    // Вывод текущих фильтруемых предметов
-    std::cout << "Текущие фильтруемые предметы:\n";
+    // Display current filtered items
+    std::cout << "Current filtered items:\n";
     for (const auto& item : filterItems) {
         std::cout << item << "\n";
     }
