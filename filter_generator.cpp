@@ -9,25 +9,25 @@
 struct Category {
     std::string name;
     std::vector<std::string> subcategories;
-    std::unordered_map<std::string, std::vector<std::string>> baseItems; // To store base items by subcategories
+    std::unordered_map<std::string, std::vector<std::string>> baseItems; // To store base items for subcategories
 };
 
-// Function to display options list
+// Function to display the options list
 void displayOptions(const std::vector<std::string>& options) {
     for (size_t i = 0; i < options.size(); ++i) {
         std::cout << i + 1 << ". " << options[i] << "\n";
     }
-    std::cout << "Enter the numbers of the selected options separated by commas (e.g., 1,3,4): ";
+    std::cout << "Enter the numbers of your chosen options separated by commas (e.g., 1,3,4): ";
 }
 
-// Function to select multiple options
+// Function to get multiple choices from the user
 std::vector<int> getMultipleChoices(const std::vector<std::string>& options) {
     std::string input;
     std::vector<int> choices;
 
     while (true) {
         displayOptions(options);
-        std::getline(std::cin, input);  // Get input string
+        std::getline(std::cin, input);  // Get the input line
 
         std::stringstream ss(input);
         int choice;
@@ -39,7 +39,7 @@ std::vector<int> getMultipleChoices(const std::vector<std::string>& options) {
                 validInput = false;
                 break;
             }
-            choices.push_back(choice - 1); // Save the choice index
+            choices.push_back(choice - 1); // Store the index of the choice
             if (ss.peek() == ',') ss.ignore(); // Skip the comma
         }
 
@@ -53,47 +53,56 @@ std::vector<int> getMultipleChoices(const std::vector<std::string>& options) {
 
 // Function to handle adding or removing multiple items
 void handleItemsAction(const std::vector<std::string>& items, std::set<std::string>& filterItems) {
+    if (items.empty()) {
+        std::cout << "There are no items in this subcategory.\n";
+        return;
+    }
+
     std::cout << "Choose items:\n";
     std::vector<int> choices = getMultipleChoices(items);
 
-    std::cout << "You selected the following items:\n";
+    std::cout << "You have chosen the following items:\n";
     for (int idx : choices) {
         std::cout << items[idx] << "\n";
     }
 
-    // Menu for adding or removing
+    // Menu for adding or removing items
     std::cout << "Choose an action:\n";
     std::cout << "A - Add to filter\n";
     std::cout << "D - Remove from filter\n";
     char action;
     std::cin >> action;
+    std::cin.ignore(); // Clear the input buffer
+
+    if (action != 'A' && action != 'a' && action != 'D' && action != 'd') {
+        std::cout << "Invalid action. Please choose A to add or D to remove.\n";
+        return;
+    }
 
     for (int idx : choices) {
         const std::string& selectedItem = items[idx];
 
         if (action == 'A' || action == 'a') {
             filterItems.insert(selectedItem);
-            std::cout << selectedItem << " added to filter.\n";
+            std::cout << selectedItem << " added to the filter.\n";
         } else if (action == 'D' || action == 'd') {
             filterItems.erase(selectedItem);
-            std::cout << selectedItem << " removed from filter.\n";
-        } else {
-            std::cout << "Invalid action for item: " << selectedItem << "\n";
+            std::cout << selectedItem << " removed from the filter.\n";
         }
     }
 }
 
-// Function to select a single item
+// Function to get a single choice from the user
 int getSingleChoice(const std::vector<std::string>& options) {
     std::string input;
     while (true) {
         displayOptions(options);
-        std::cin >> input;
+        std::getline(std::cin, input);
 
         try {
             int choice = std::stoi(input);
             if (choice >= 1 && choice <= static_cast<int>(options.size())) {
-                return choice - 1; // Indices start from 0
+                return choice - 1; // Indices start at 0
             } else {
                 std::cout << "Invalid choice, please try again.\n";
             }
@@ -103,9 +112,9 @@ int getSingleChoice(const std::vector<std::string>& options) {
     }
 }
 
-// Main menu
+// Main menu function
 void mainMenu() {
-    // Categories and their subcategories
+    // Categories and subcategories
     std::unordered_map<std::string, Category> categories = {
         {"One-Handed Weapons", {"One-Handed Weapons", {"Wands", "One-Handed Maces", "Sceptres"}, {}}},
         {"Two-Handed Weapons", {"Two-Handed Weapons", {"Bows", "Staves", "Two Hand Swords", "Two Hand Axes", "Two Hand Maces", "Quarterstaves", "Crossbows"}, {}}},
@@ -118,7 +127,7 @@ void mainMenu() {
         {"Jewels", {"Jewels", {"Jewels"}, {}}}
     };
 
-    // Example for base items
+    // Example base items for subcategories
     categories["One-Handed Weapons"].baseItems["Wands"] = {
         "Driftwood Wand", "Goat's Horn", "Quartz Wand", "Spiraled Wand", "Omen Wand",
         "Heathen Wand", "Profane Wand", "Opal Wand", "Tornado Wand", "Fossilised Wand",
@@ -162,11 +171,11 @@ void mainMenu() {
         "Distilled Disgust", "Distilled Fear", "Distilled Guilt", "Distilled Isolation",  "Distilled Suffering"
     };
 
-    // Set to store filtered items
+    // Set for storing filtered items
     std::set<std::string> filterItems;
 
-    // Select main category
-    std::cout << "Select a main category:\n";
+    // Choose main category
+    std::cout << "Choose the main category:\n";
     std::vector<std::string> mainCategories;
     for (const auto& category : categories) {
         mainCategories.push_back(category.first);
@@ -175,28 +184,22 @@ void mainMenu() {
     int mainChoice = getSingleChoice(mainCategories);
     const auto& selectedCategory = categories[mainCategories[mainChoice]];
 
-    std::cout << "You selected: " << selectedCategory.name << "\n";
-    std::cout << "Select a subcategory:\n";
+    std::cout << "You chose: " << selectedCategory.name << "\n";
+    std::cout << "Choose a subcategory:\n";
 
     int subChoice = getSingleChoice(selectedCategory.subcategories);
 
     const auto& subcategoryName = selectedCategory.subcategories[subChoice];
-    std::cout << "You selected subcategory: " << subcategoryName << "\n";
+    std::cout << "You chose the subcategory: " << subcategoryName << "\n";
 
     try {
         if (selectedCategory.baseItems.find(subcategoryName) != selectedCategory.baseItems.end()) {
             handleItemsAction(selectedCategory.baseItems.at(subcategoryName), filterItems);
         } else {
-            std::cout << "Subcategory " << subcategoryName << " is not implemented yet.\n";
+            std::cout << "This subcategory is not yet implemented.\n";
         }
-    } catch (const std::out_of_range& e) {
-        std::cout << "Error: subcategory not found.\n";
-    }
-
-    // Display current filtered items
-    std::cout << "Current filtered items:\n";
-    for (const auto& item : filterItems) {
-        std::cout << item << "\n";
+    } catch (const std::exception& e) {
+        std::cout << "An error occurred: " << e.what() << "\n";
     }
 }
 
