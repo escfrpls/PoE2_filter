@@ -117,7 +117,7 @@ void mainMenu() {
     // Categories and subcategories
     std::unordered_map<std::string, Category> categories = {
         {"One-Handed Weapons", {"One-Handed Weapons", {"Wands", "One-Handed Maces",
-                                                       "Sceptres"}, {}}},
+         "Sceptres"}, {}}},
         {"Two-Handed Weapons", {"Two-Handed Weapons", {"Bows", "Staves", "Two Hand Axes",
                                                        "Two Hand Maces", "Quarterstaves", "Crossbows"}, {}}},
         {"Off-hand", {"Off-hand", {"Quivers", "Shields", "Foci"}, {}}},
@@ -129,8 +129,122 @@ void mainMenu() {
         {"Waystones", {"Waystones", {"Waystones", "Map Fragments"}, {}}},
         {"Jewels", {"Jewels", {"Jewels"}, {}}}
     };
-
+    
     // Example base items for subcategories
+    categories["Jewels"].baseItems["Jewels"] = {
+        "Timeless Jewel", "Ruby", "Emerald", "Sapphire", "Diamond", "Time-Lost Ruby",
+       	"Time-Lost Emerald", "Time-Lost Sapphire", "Time-Lost Diamond"
+    };
+
+    categories["Waystones"].baseItems["Map Fragments"] = {
+        "Simulacrum", "An Audience with the King", "Cowardly Fate", "Deadly Fate", "Victorios Fate"
+    };
+
+    categories["Waystones"].baseItems["Waystones"] = {
+        "Waystone (Tier 1)", "Waystone (Tier 2)", "Waystone (Tier 3)", "Waystone (Tier 4)",
+	"Waystone (Tier 5)", "Waystone (Tier 6)", "Waystone (Tier 7)", "Waystone (Tier 8)",
+	"Waystone (Tier 9)", "Waystone (Tier 10)", "Waystone (Tier 11)", "Waystone (Tier 12)",
+	"Waystone (Tier 13)", "Waystone (Tier 14)", "Waystone (Tier 15)", "Waystone (Tier 15)"
+    };
+
+    categories["Flasks"].baseItems["Charms"] = {
+        "Thawing Charm", "Staunching Charm", "Antidote Charm", "Dousing Charm", "Graunding Charm",
+	"Stone Charm", "Silver Charm", "Ruby Charm", "Sapphire Charm", "Topaz Charm",
+	"Amethyst Charm", "Golden Charm"
+    };
+
+    categories["Flasks"].baseItems["Mana Flasks"] = {
+        "Lesser Mana Flask", "Medium Mana Flask", "Greater Mana Flask", "Grand Mana Flask",
+        "Giat Mana Flask", "Colossal Mana Flask", "Gargantuan Mana Flask",
+        "Transcendent Mana Flask"	
+    };
+
+    categories["Flasks"].baseItems["Life Flasks"] = {
+        "Lesser Life Flask", "Medium Life Flask", "Greater Life Flask", "Grand Life Flask",
+	"Giant Life Flask", "Colossal Life Flask", "Gargantuan Life Flask",
+	"Transcendent Life Flask", "Ultimate Life Flask"
+    };
+
+    categories["Jewellery"].baseItems["Belts"] = {
+        "Golden Obi", "Rawhide Belt", "Linen Belt", "Wide Belt", "Long Belt", "Plate Belt", 
+	"Ornate Belt", "Mail Belt", "Double Belt", "Heavy Belt", "Utility Belt", "Fine Belt"
+    };
+
+    categories["Jewellery"].baseItems["Rings"] = {
+        "Iron Ring", "Lazuli Ring", "Ruby Ring", "Sapphire Ring", "Topaz Ring", "Amethyst Ring",
+	"Emerald Ring", "Pearl Ring", "Prismatic Ring", "Gold Ring", "Unset Ring", "Ring",
+	"Breach Ring"
+    };	    
+
+    categories["Jewellery"].baseItems["Amulets"] = {
+        "Crimsom Amulet", "Azure Amulet", "Amber Amulet", "Jade Amulet", "Lapis Amulet",
+	"Lunar Amulet", "Bloodstone Amulet", "Stellar Amulet", "Solar Amulet", "Gold Amulet"
+    };	    
+
+    categories["Armour"].baseItems["Body Armours"] = {
+        "Golden Wreath", "Golden Visage", "Rusted Greathelm", "Wrapped Greathelm", "Spired Greathelm",
+        "Elite Greathelm", "Warrior Greathelm", "Commander Greathelm", "Fierce Greathelm",
+	"Dueling Greathelm", "Goliath Greathelm", "Guardian Greathelm", "Shabby Hood", "Felt Cap",
+	"Lace Hood", "Swathed Cap", "Hunter Hood", "Viper Cap", "Corsair Cap", "Leatherbound Hood",
+	"Velvet Cap", "Covert Hood", "Armoured Cap", "Twig Circlet", "Wicker Tiara", "Beaded Circlet",
+	"Chain Tiara", "Feathered Tiara", "Gold Circlet", "Coral Circlet", "Jade Tiara", "Noble Circlet",
+	"Twilight Tiara", "Magus Tiara", "Brimmed Helm", "Guarded Helm", "Visored Helm", "Cowled Helm",
+	"Shielded Helm", "Closed Helm", "Decorated Helm", "Gallant Helm", "Iron Crown", 
+	"Horned Crown", "Cultist Crown", "Martyr Crown", "Heavy Crown", "Spiritbone Crown",
+	"Lavish Crown", "Templar Crowm", "Hewk Mask", "Face Mask", "Hooded Mask", "Veiled Mask",
+	"Tribal Mask", "Solid Mask", "Shaded Mask", "Death Mask", "Grand Visage", 
+	"Advanced Rusted Greathelm", "Advanced Soldier Greathelm", "Advanced Wrapped Greathelm",
+	"Advanced Spired Greathelm", "Advanced Elite Greathelm", "Advanced Shabby Hood",
+	"Advanced Felt Cap", "Advanced Lace Hood", "Advanced Swathed Cap", "Advanced Swathed Cap",
+	"Advanced Hunter Hood", "Advanced Twig Circlet", "Advanced Wicker Tiara", 
+	"Advanced Beaded Circlet", "Advanced Chain Tiara", "Advanced Feathered Tiara",
+	"Advanced Brimmed Helm", "Advanced Guarded Helm", "Advanced Visored Helm", 
+	"Advanced Cowled Helm", "Advanced Shielded Helm", "Advanced Iron Crown", "Advanced Horned Crown",
+	"Advanced Cultist Crown", "Advanced Martyr Crown", "Advanced Heavy Crowm", 
+	"Advanced Hewm Mask", "Advanced Face Mask", "Advanced Hooded Mask", "Advanced Veiled Mask",
+	"Advanced Tribal Mask", "Expert Soldier Greathelm", "Expert Spired Greathelm",
+	"Expert Elite Greathelm", "Expert Felt Cap", "Expert Swathed Cap", "Expert Hunter Hood",
+	"Expert Wicker Tiara", "Expert Chain Tiara", "Expert Feathered Tiara", "Expert Guarded Helm",
+	"Expert Cowled Helm", "Expert Shielded Helm", "Expert Horned Crowm", "Expert Martyr Crown",
+	"Expert Heavy Crown", "Expert Face Mask", "Expert Veiled Mask", "Expert Tribal Mask"
+    };	
+
+    categories["Armour"].baseItems["Body Armours"] = {
+        "Rusted Cuirass", "Fur Plate", "Iron Cuirass", "Raider Plate", "Maraketh Cuirass", "Steel Plate",
+	"Full Plate", "Vaal Cuirass", "Juggernaut Plate", "Chieftain Cuirass", "Colosseum Plate",
+	"Champion Cuirass", "Glorious Plate", "Conqueror Plate", "Abyssal Cuirass", "Leather Vest",
+	"Quilted Vest", "Pathfinder Coat", "Shrouded Vest", "Rhoahide Coat", "Studded Vest",
+	"Scout's Vest", "Serpentscale Coat", "Corsair Vest", "Smuggler Coat", "Strider Vest",
+	"Hardleather Coat", "Exquisite Vest", "Mail Coat", "Armoured Vest", "Tattered Robe",
+	"Feathered Robe", "Hexer's Robe", "Bone Raiment", "Silk Robe", "Keht Raiment", "Votive Raiment",
+	"Altar Robe", "Elementalist Robe", "Mystic Raiment", "Imperial Robe", "Plated Raiment",
+	"Havoc Raiment", "Enlightened Robe", "Arcane Robe", "Chain Mail", "Rogue Armour", 
+	"Vagabond Armour", "Cloaked Mail", "Explorer Armour", "Scale Mail", "Khight Armour",
+	"Ancestral Mail", "Lamellar Mail", "Gladiator Armour", "Heroic Armour", "Tournamest Mail",
+	"Tournament Mail", "Slayer Armour", "Piligrim Vestments", "Pelt Mantle", "Mail Vestments",
+	"Shaman Mantle", "Ironclad Vestments", "Sacrificial Mantle", "Cleric Vestments", 
+	"Tideseer Mantle", "Gilded Vestments", "Venerated  Mantle", "Revered Vestment", "Corvus Mantle",
+	"Zenith Vestmenst", "Hermit Garb", "Waxed Jacket", "Marabout Garb", "Wayfarer Jacket",
+	"Anchorite Garb", "Scalper's Jacket", "Scoundrel Jacket", "Ascetic Garb", "Clandestine Jacket",
+	"Monastic Garb", "Tourment Jacket", "Devout Garb", "Assassin Garb", "Garment", "Grand Regalia",
+	"Advanced Fur Plate", "Advanced Iron Cuirass", "Advanced Maraketh Cuirass",
+	"Advanced Steel Plate", "Advanced Full Plate", "Advanced Vaal Cuirass", "Advanced Quilted Vest",
+	"Advanced Pathfinder Coat", "Advanced Rhoahide Coat", "Advanced Studded Vest",
+	"Advanced Scout's Vest", "Advanced Serpentscale Coat", "Advanced Feathered Robe",
+	"Advanced Hexer's Robe", "Advanced Slik Robe", "Advanced Keth Raiment",
+       	"Advanced Votive Raiment", "Advanced Altar Robe", "Advanced Chain Mail", "Advanced Rogue Armour",
+	"Advanced Vagabond Armour", "Advanced Cloaked Mail", "Advanced Explorer Armour",
+	"Advanced Scale Mail", "Advanced Pilgrim Vestments", "Advanced Pelt Mantle",
+	"Advanced Mail Vestments", "Advanced Shaman Mantle", "Advanced Ironclad Vestments",
+	"Advanced Sacrificial Mantle", "Advanced Hermit Grab", "Advanced Waxed Jacket",
+	"Advanced Marabout Garb", "Advanced Wayfarer Jacket", "Advanced Anchorite Garb",
+	"Advanced Scalper's Jacket", "Expert Iron Cuirass", "Expert Steel Plate", "Expert Vaal Cuirass",
+	"Expert Pathfinder Coat", "Expert Studded Vest", "Expert Serpentscale Coat",
+	"Expert Hexer's Robe", "Expert Keth Raiment", "Expert Altar Robe", "Expert Rogue Armour",
+	"Expert Cloaked Mail", "Expert Scale Mail", "Expert Shaman Mantle", "Expert Sacrifical Mantle",
+	"Expert Waxed Jacket", "Expert Wayfarer Jacket", "Expert Scalper's Jacket"
+    }; 
+    
     categories["Armour"].baseItems["Boots"] = {
         "Rough Greaves", "Iron Greaves", "Bronze Greaves", "Trimmed Greaves", "Stone Greaves",
         "Reefsteel Greaves", "Monument Greaves", "Totemic Greaves", "Rawhide Boots", "Laced Boots",
