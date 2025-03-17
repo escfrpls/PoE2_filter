@@ -1,21 +1,7 @@
-#--------------------------
-# Uniques
-#--------------------------
-
-Show
-Rarity Unique
-SetTextColor 175 96 37 255
-SetBorderColor 175 96 37 255
-SetBackgroundColor 53 13 13 255
-PlayAlertSound 3 300
-PlayEffect Brown
-MinimapIcon 2 Brown Star
-SetFontSize 40
-
-## Divine Orb Style
+## Currency
 Show
 Class "Currency"
-BaseType "Mirror" "Divine" "Perfect Jeweller's Orb"
+BaseType "Mirror of Kalandra" "Orb of Annulment" "Vaal Orb" "Divine Orb" "Regal Orb" "Exalted Orb" "Orb of Alchemy" "Orb of Chance" "Chaos Orb" "Perfect Jeweller's Orb"
 SetFontSize 45
 SetTextColor 255 0 0 255
 SetBorderColor 255 0 0 255
@@ -24,10 +10,47 @@ PlayAlertSound 6 300
 PlayEffect Red
 MinimapIcon 0 Red Star
 
-#--------------------------
-# Gold
-#--------------------------
+Show
+Class "Currency"
+BaseType "Orb of Transmutation" "Orb of Augmentation" "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Artificer's Orb" "Scroll of Wisdom" "Lesser Jeweller's Orb" "Greater Jeweller's Orb" "Gemcutter's Prism" "Glassblower's Bauble"
+SetTextColor 255 207 132
+SetBorderColor 255 207 132
+SetBackgroundColor 76 51 12
+PlayAlertSound 2 300
+PlayEffect White
+MinimapIcon 1 White Circle
+SetFontSize 40
 
+Show
+Class "Currency"
+BaseType "Artificer's Shard" "Transmutation Shard" "Regal Shard" "Chance Shard"
+SetTextColor 255 207 132
+SetBorderColor 255 207 132
+SetBackgroundColor 76 51 12
+PlayAlertSound 2 300
+PlayEffect White
+MinimapIcon 1 White Circle
+
+## Soul Core and Timeless
+# Special A Tier - League specific socketables and jewels
+Show
+BaseType "Soul Core" "Timeless"
+SetTextColor 0 240 190
+SetBorderColor 0 240 190
+SetFontSize 40
+MinimapIcon 2 Cyan Triangle
+PlayEffect Cyan
+
+## Gems Uncut
+Show
+BaseType "Uncut"
+SetTextColor 20 240 240
+SetBorderColor 20 240 240
+PlayAlertSound 2 300
+PlayEffect Cyan
+MinimapIcon 1 Cyan Triangle
+
+## Gold
 Show
 StackSize >= 500
 BaseType == "Gold"
@@ -41,33 +64,8 @@ SetTextColor 180 180 180
 SetBorderColor 0 0 0 255
 SetBackgroundColor 0 0 0 180
 
-#--------------------------
-# Uncut Gems
-#--------------------------
-
+## Relic
 Show
-BaseType "Uncut "
-SetTextColor 20 240 240
-SetBorderColor 20 240 240
-PlayAlertSound 2 300
-PlayEffect Cyan
-MinimapIcon 1 Cyan Triangle
-
-#--------------------------
-# Socketables and Special Character Equipment
-#--------------------------
-
-# Special A Tier - League specific socketables and jewels
-Show 
-BaseType "Soul Core" "Timeless"
-SetTextColor 0 240 190
-SetBorderColor 0 240 190
-SetFontSize 40
-MinimapIcon 2 Cyan Triangle
-PlayEffect Cyan
-
-# Special A Tier - Sanctum Relics
-Show 
 Class "Relic"
 SetTextColor 0 240 190
 SetBorderColor 0 240 190
@@ -75,91 +73,9 @@ SetFontSize 40
 MinimapIcon 2 Cyan Triangle
 PlayEffect Cyan
 
-# Special A Tier - Rare Jewels
+## Fragments
 Show
-Class "Jewel"
-Rarity Rare
-SetTextColor 0 240 190
-SetBorderColor 0 240 190
-SetFontSize 40
-MinimapIcon 2 Cyan Triangle
-PlayEffect Cyan
-
-# Special B Tier - Any Jewels
-Show
-Class "Jewel"
-Rarity Magic
-SetTextColor 0 240 190
-SetBorderColor 0 240 190
-SetFontSize 40
-PlayEffect Cyan Temp
-
-# Special B Tier - Any Runes and Charms
-Show 
-BaseType " Rune" " Charm"
-SetTextColor 0 240 190
-PlayEffect Cyan Temp
-
-#--------------------------
-# Socketables and Special Character Equipment
-#--------------------------
-
-# Currency Tier A: Gemcutter, Annullment
-Show
-Class "Currency"
-BaseType "Gemcutter's Prism" "Orb of Annulment" "Orb of Chance"
-SetTextColor 255 255 255 255
-SetBorderColor 255 255 255 255
-SetBackgroundColor 240 90 35
-PlayAlertSound 1 300
-PlayEffect White
-MinimapIcon 1 White Circle
-SetFontSize 40
-
-# Currency Tier B: Vaal, Chaos, Exalt, Exotic
-Show
-Class "Currency"
-BaseType "Vaal Orb" "Greater Jeweller's Orb" "Chaos Orb" "Lesser Jeweller's Orb" "Exotic" "Exalted Orb" "Regal Orb" "Artificer's Orb" "Glassblower's Bauble" "Orb of Alchemy" 
-SetTextColor 255 207 132
-SetBorderColor 255 207 132
-SetBackgroundColor 76 51 12
-PlayAlertSound 2 300
-PlayEffect White
-MinimapIcon 1 White Circle
-SetFontSize 40
-
-Show
-Class "Currency"
-BaseType "Distilled" "Catalyst" "Essence of" "Omen of"
-SetTextColor 255 207 132
-SetBorderColor 255 207 132
-SetBackgroundColor 76 51 12
-PlayAlertSound 2 300
-PlayEffect White
-MinimapIcon 1 White Circle
-
-# Currency Tier C: Vaal, Chaos, Exalt, Exotic
-Show
-Class "Currency"
-BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Augmentation" "Orb of Transmutation" "Regal Shard"
-SetTextColor 255 207 132
-SetBorderColor 255 207 132
-MinimapIcon 2 Grey Circle
-
-Show
-Class "Currency"
-BaseType "Simulacrum Splinter" "Breach Splinter" " Artifact"
-SetTextColor 255 207 132
-SetBorderColor 255 207 132
-MinimapIcon 2 Grey Circle
-
-Show
-Class "Currency"
-BaseType "Wisdom" "Shard"
-
-# Fragments
-Show
-BaseType "Simulacrum" " Tablet" "Breachstone" "Barya" "Ultimatum" " Fragment" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
+BaseType "Simulacrum" "Tablet" "Breachstone" "Barya" "Ultimatum" " Fragment" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
 SetTextColor 255 207 255
 SetBorderColor 255 207 255
 SetBackgroundColor 65 20 80
@@ -168,6 +84,7 @@ PlayEffect White
 MinimapIcon 1 White Square
 SetFontSize 40
 
+## Waystone
 Show
 BaseType "Waystone"
 Rarity <= Rare
@@ -178,29 +95,39 @@ PlayEffect White
 MinimapIcon 1 White Square
 SetFontSize 40
 
-#--------------------------
-# Value Rares
-#--------------------------
+## Waystone Rune and Charm
+Show
+BaseType "Rune" "Charm"
+SetTextColor 0 240 190
+PlayEffect Cyan Temp
+
+## Jewelery
+Show
+BaseType "Ring"
+SetTextColor 30 200 240
+SetBorderColor 20 240 240
+PlayAlertSound 3 300
+PlayEffect Cyan
+MinimapIcon 1 Cyan Triangle
 
 Show
-Class "Rings" "Amulets" "Belts"
-Rarity Rare
-SetFontSize 40
-SetTextColor 233 206 75
-SetBorderColor 233 206 75
-PlayEffect Yellow
-MinimapIcon 1 Yellow Diamond
-
-#--------------------------
-# Rings, Amulets, Belts
-#--------------------------
+BaseType "Amulet"
+SetTextColor 30 180 200
+SetBorderColor 30 180 200
+PlayAlertSound 4 250
+PlayEffect Cyan
+MinimapIcon 1 Cyan Triangle
 
 Show
-Rarity Normal
-Class "Rings" "Amulets" "Belts"
-SetFontSize 40
+Class "Mana Flasks" "Life Flasks" "Helmets" "Boots" "Body Armour" "Gloves" "Foci" "Shields" "Bows" "Staves" "Two Hand Maces" "Quarterstaves" "Crossbows" "Sceptres" "One Hand Maces" "One Hand Swords" "Wands"
+Quality >= 2
+SetBorderColor 255 165 0 255
+SetBackgroundColor 255 100 0 255
 
 Show
-Class "Rings" "Amulets" "Belts"
-Rarity Magic
-SetFontSize 40
+BaseType == "Advanced Crystal Focus"
+SetBorderColor 200 0 0
+SetBackgroundColor 60 0 0
+SetFontSize 45
+Rarity Normal Magic Rare Unique
+Sockets >= 1
