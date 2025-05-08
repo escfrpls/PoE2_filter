@@ -1,0 +1,248 @@
+##############
+### Currency ###
+##############
+
+# Top Tier Currency
+Show
+    Class "Currency"
+    BaseType "Mirror of Kalandra" "Orb of Annulment" "Vaal Orb" "Divine Orb" "Exalted Orb" "Perfect Jeweller's Orb" "Ancient Crisis Fragment" "Faded Crisis Fragment" "Weathered Crisis Fragment" "Olroth's Reliquary Key" "Ritualistic Reliquary Key" "Tangmazu's Reliquary Key" "The Arbiter's Reliquary Key" "The Trialmaster's Reliquary Key" "Twilight Reliquary Key" "Xesht's Reliquary Key" "Zarokh's Reliquary Key"
+ 	SetFontSize 45
+	SetTextColor 255 0 0 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 255 255 255 255
+	PlayAlertSound 6 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+# Mid Tier Currency
+Show
+    Class "Currency"
+    BaseType "Regal Orb" "Orb of Alchemy" "Chaos Orb" "Perfect Jeweller's Orb" "Gemcutter's Prism" "Greater Jeweller's Orb" "Artificer's Orb" "Arcanist's Etcher" "Expedition Logbook" "Orb of Chance"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 245 105 90 255
+	PlayAlertSound 1 300
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+
+# Low Tier Currency
+Show
+    Class "Currency"
+    BaseType "Serpent Talisman" "Primate Talisman" "Owl Talisman" "Cat Talisman" "Wolf Talisman" "Stag Talisman" "Boar Talisman" "Bear Talisman" "Ox Talisman" "Rabbit Talisman" "Fox Talisman"
+	SetFontSize 42
+	SetTextColor 0 0 0 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 245 105 90 255
+	PlayAlertSound 2 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Circle
+
+#Talisman Wisp
+Show
+    Class "Currency"
+    BaseType "Glassblower's Bauble" "Orb of Transmutation" "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone" "Lesser Jeweller's Orb"
+        SetFontSize 42
+        SetTextColor 0 0 0 255
+        SetBorderColor 0 0 0 255
+        SetBackgroundColor 245 105 90 255
+        PlayAlertSound 2 300
+        PlayEffect Yellow
+        MinimapIcon 1 Yellow Circle
+
+
+# Currency Shards
+Show
+    Class "Currency"
+    BaseType "Artificer's Shard" "Transmutation Shard" "Regal Shard" "Chance Shard" "Distilled Despair", "Distilled Disgust", "Distilled Envy", "Distilled Fear", "Distilled Greed", "Distilled Guilt", "Distilled Ire", "Distilled Isolation", "Distilled Paranoia", "Distilled Suffering"
+    	SetFontSize 42
+	SetTextColor 0 0 0 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 245 105 90 255
+	PlayAlertSound 2 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Circle
+
+########################
+### Soul Core and Timeless ###
+########################
+Show
+    BaseType "Soul Core" "Timeless"
+        SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 188 96 37 255
+	PlayAlertSound 1 300
+	PlayEffect Red
+	MinimapIcon 0 Yellow Star
+
+###############
+### Gems ###
+###############
+Show
+    BaseType "Uncut"
+    SetTextColor 20 240 240 255     # Яркий бирюзовый
+    SetBorderColor 0 200 200 255    # Циановая рамка
+    SetBackgroundColor 0 40 40 180  # Темный фон
+    PlayAlertSound 2 300
+    PlayEffect Cyan
+    MinimapIcon 1 Cyan Triangle
+
+##############
+### Gold ###
+##############
+Show
+    BaseType "Gold"
+    StackSize >= 500
+    SetTextColor 255 215 0 255      # Золотой
+    SetBorderColor 255 215 0 200    # Полупрозрачная золотая рамка
+    SetBackgroundColor 40 30 0 200  # Темно-золотой фон
+    PlayEffect Orange Temp
+    MinimapIcon 2 Yellow Star
+
+Show
+    BaseType "Gold"
+    SetTextColor 180 180 180 255    # Серый
+    SetBorderColor 100 100 100 255  # Темно-серая рамка
+    SetBackgroundColor 20 20 20 200 # Темный фон
+
+###############
+### Relic ###
+###############
+Show
+    Class "Relic"
+    SetTextColor 0 240 190 255      # Неоновый циан
+    SetBorderColor 0 200 160 255    # Яркая рамка
+    SetFontSize 40
+    MinimapIcon 2 Cyan Triangle
+    PlayEffect Cyan
+    SetBackgroundColor 0 40 30 200  # Темный фон
+
+################
+### Fragments ###
+################
+Show
+    BaseType "Simulacrum" "Tablet" "Breachstone" "Barya" "Ultimatum" "Fragment" "Cowardly Fate" "Deadly Fate" "Victorious Fate" "Breach Splinter"
+        SetFontSize 45
+	SetTextColor 255 0 0 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 255 255 255 255
+	PlayAlertSound 6 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+#################
+### Waystone ###
+#################
+Show
+    BaseType "Waystone"
+    Rarity <= Rare
+    SetTextColor 200 200 255 255    # Светло-голубой
+    SetBorderColor 150 150 255 255  # Голубая рамка
+    SetBackgroundColor 20 20 60 200 # Темно-синий фон
+    PlayAlertSound 4 300
+    PlayEffect Blue
+    MinimapIcon 1 Blue Square
+    SetFontSize 40
+
+##########################
+### Rune and Charm ###
+##########################
+Show
+    BaseType "Rune" "Charm"
+    SetTextColor 0 240 190 255      # Неоновый циан
+    SetBorderColor 0 200 160 255    # Яркая рамка
+    PlayEffect Cyan Temp
+    SetBackgroundColor 0 40 30 200  # Темный фон
+
+#################
+### Jewelry ###
+#################
+Show
+    BaseType "Ring"
+    SetTextColor 30 200 240 255     # Яркий синий
+    SetBorderColor 0 180 220 255    # Голубая рамка
+    SetBackgroundColor 0 30 40 200  # Темно-синий фон
+    PlayAlertSound 3 300
+    PlayEffect Blue
+    MinimapIcon 1 Blue Circle
+
+Show
+    BaseType "Amulet"
+    SetTextColor 180 200 255 255    # Светло-голубой
+    SetBorderColor 120 160 220 255  # Нежно-голубая рамка
+    SetBackgroundColor 20 40 60 200 # Темный фон
+    PlayAlertSound 4 250
+    PlayEffect Blue
+    MinimapIcon 1 Blue Diamond
+
+########################
+### Quality Items ###
+########################
+Show
+    Class "Mana Flasks" "Life Flasks" "Helmets" "Boots" "Body Armour" "Gloves" "Foci" "Shields" "Bows" "Staves" "Two Hand Maces" "Quarterstaves" "Crossbows" "Sceptres" "One Hand Maces" "One Hand Swords" "Wands"
+    Quality >= 2
+    SetBorderColor 255 140 0 255    # Золотая рамка
+    SetBackgroundColor 80 40 0 200 # Темно-оранжевый фон
+
+########################
+### Stackables ###
+########################
+Show # Catalysts
+    Class "Stackable Currency"
+    BaseType Catalyst
+    SetFontSize 36
+    SetTextColor 255 255 200 255    # Светло-желтый
+    SetBorderColor 150 100 50 255   # Коричневая рамка
+    SetBackgroundColor 80 60 30 200 # Темно-коричневый фон
+
+Show # Artifacts
+    Class "Stackable Currency"
+    BaseType Artifact
+    SetFontSize 36
+    SetTextColor 200 220 255 255    # Светло-голубой
+    SetBorderColor 100 120 180 255  # Синяя рамка
+    SetBackgroundColor 30 40 60 200 # Темно-синий фон
+
+Show # Coinages
+    Class "Stackable Currency"
+    BaseType Coinage
+    SetFontSize 36
+    SetTextColor 220 200 150 255    # Светло-коричневый
+    SetBorderColor 150 120 80 255   # Коричневая рамка
+    SetBackgroundColor 60 50 30 200 # Темный фон
+
+################
+### Logbooks ###
+################
+Show
+    Class "Logbook"
+    SetTextColor 255 105 180 255    # Ярко-розовый
+    SetBorderColor 255 50 100 200   # Полупрозрачная розовая рамка
+    SetFontSize 36
+    MinimapIcon 2 Pink Diamond      # БЫЛО Triangle (исправлено на Diamond)
+    PlayEffect Pink Temp
+    SetBackgroundColor 80 0 40 200
+
+#################
+### Essences ###
+#################
+Show
+    Class "Stackable Currency"
+    BaseType "Essence"
+    SetFontSize 36
+    SetTextColor 150 100 255 255    # Фиолетовый
+    SetBorderColor 130 80 220 255   # Ярко-фиолетовая рамка
+    SetBackgroundColor 40 20 80 200
+    MinimapIcon 1 Purple Circle      # Добавлен отсутствующий MinimapIcon
+
+##############################
+### Special Base Items ###
+##############################
+Show
+    BaseType "Soaring Mask" "Faridun Mask" "Brigand Mask" "Shaded Mask" "Death Mask" "Devout Garb" "Assassin Garb" "Falconer's Jacket" "Rambler Jacket" "Sleek Jacket" "Quickslip Shoes" "Quickslip Shoes" "Charmed Shoes" "Wanderer Shoes" "Wanderer Shoes" "Silverbuckled Shoes" "Wayfarer Shoes" "Grand Cuisses" "Bladed Shoes" "Bladed Shoes" "Steelpoint Shoes" "Vaal Wraps" "Elegant Wraps" "War Wraps" "Gleaming Cuffs" "Adorned Wraps" "Cambric Wraps" "Bandage Wraps" "Gemini Crossbow" "Flexed Crossbow" "Piercing Crossbow" "Tense Crossbow"
+    Rarity Normal
+    SetBorderColor 255 255 255 255 # Белая рамка
+    SetTextColor 255 255 255 255   # Белый текст
+    SetBackgroundColor 0 0 0 200   # Полупрозрачный черный фон
+    PlayAlertSound 1 300
