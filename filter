@@ -38,7 +38,18 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 1 Yellow Circle
 
-#Talisman Wisp
+### Omens ###
+Show
+    Class "Omen"
+    BaseType "Omen of Refreshment" "Omen of Resurgence" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Alchemy" "Omen of Dextral Alchemy" "Omen of Sinistral Coronation" "Omen of Dextral Coronation" "Omen of Greater Exaltation" "Omen of Sinistral Exaltation" "Omen of Dextral Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Annulment" "Omen of Dextral Annulment" "Omen of Answered Prayers" "Omen of Secret Compartments" "Omen of the Hunt" "Omen of Reinforcements"
+    SetFontSize 42
+    SetTextColor 255 255 255 255          # Белый текст для контраста
+    SetBorderColor 150 50 200 255         # Фиолетовая граница
+    SetBackgroundColor 100 20 150 255     # Насыщенный фиолетовый фон
+    PlayAlertSound 2 300
+    PlayEffect Purple                     # Фиолетовый эффект
+    MinimapIcon 1 Purple Circle           # Фиолетовый круг на миникарте
+
 Show
     Class "Currency"
     BaseType "Glassblower's Bauble" "Orb of Transmutation" "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone" "Lesser Jeweller's Orb"
@@ -62,6 +73,21 @@ Show
 	PlayAlertSound 2 300
 	PlayEffect Yellow
 	MinimapIcon 1 Yellow Circle
+	
+################################
+### Talismans (Socketable) ###
+################################
+
+Show
+    Class "Socketable"
+    BaseType "Bear Talisman" "Boar Talisman" "Cat Talisman" "Fox Talisman" "Owl Talisman" "Ox Talisman" "Primate Talisman" "Rabbit Talisman" "Serpent Talisman" "Stag Talisman" "Wolf Talisman"
+    SetFontSize 42
+    SetTextColor 0 0 0 255                 # Черный текст
+    SetBorderColor 40 180 40 255           # Сочная зеленая граница
+    SetBackgroundColor 120 255 120 255     # Светло-зеленый фон
+    PlayAlertSound 5 300                    # Уникальный звук
+    PlayEffect Green                        # Зеленый эффект
+    MinimapIcon 1 Green Circle              # Зеленый круг на миникарте
 
 ########################
 ### Soul Core and Timeless ###
@@ -123,13 +149,13 @@ Show
 ################
 Show
     BaseType "Simulacrum" "Tablet" "Breachstone" "Barya" "Ultimatum" "Fragment" "Cowardly Fate" "Deadly Fate" "Victorious Fate" "Breach Splinter"
-        SetFontSize 45
-	SetTextColor 255 0 0 255
-	SetBorderColor 255 0 0 255
-	SetBackgroundColor 255 255 255 255
-	PlayAlertSound 6 300
-	PlayEffect Red
-	MinimapIcon 0 Red Star
+        SetFontSize 42
+        SetTextColor 0 0 0 255
+        SetBorderColor 0 0 0 255
+        SetBackgroundColor 245 105 90 255
+        PlayAlertSound 2 300
+        PlayEffect Yellow
+        MinimapIcon 1 Yellow Circle
 
 #################
 ### Waystone ###
@@ -156,7 +182,7 @@ Show
     SetBackgroundColor 0 40 30 200  # Темный фон
 
 #################
-### Jewelry ###
+### Jewelery ###
 #################
 Show
     BaseType "Ring"
@@ -240,9 +266,89 @@ Show
 ### Special Base Items ###
 ##############################
 Show
-    BaseType "Soaring Mask" "Faridun Mask" "Brigand Mask" "Shaded Mask" "Death Mask" "Devout Garb" "Assassin Garb" "Falconer's Jacket" "Rambler Jacket" "Sleek Jacket" "Quickslip Shoes" "Quickslip Shoes" "Charmed Shoes" "Wanderer Shoes" "Wanderer Shoes" "Silverbuckled Shoes" "Wayfarer Shoes" "Grand Cuisses" "Bladed Shoes" "Bladed Shoes" "Steelpoint Shoes" "Vaal Wraps" "Elegant Wraps" "War Wraps" "Gleaming Cuffs" "Adorned Wraps" "Cambric Wraps" "Bandage Wraps" "Gemini Crossbow" "Flexed Crossbow" "Piercing Crossbow" "Tense Crossbow"
+    BaseType ""
     Rarity Normal
     SetBorderColor 255 255 255 255 # Белая рамка
     SetTextColor 255 255 255 255   # Белый текст
     SetBackgroundColor 0 0 0 200   # Полупрозрачный черный фон
     PlayAlertSound 1 300
+
+#######################################
+### NeverSink-style Color Coding ###
+#######################################
+
+### Maps ###
+Show
+    Class "Map"
+    SetTextColor 170 110 40 255     # Коричневый
+    SetBorderColor 170 110 40 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 2 Brown Circle
+
+### Map Fragments ###
+Show
+    Class "Map Fragments"
+    SetTextColor 170 110 40 255     # Коричневый
+    SetBorderColor 170 110 40 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 2 Brown Square
+
+### Divination Cards ###
+Show
+    Class "Divination Card"
+    SetTextColor 0 200 0 255        # Зеленый
+    SetBorderColor 0 200 0 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 2 Green Diamond
+
+### Unique Items ###
+Show
+    Rarity Unique
+    SetTextColor 175 96 37 255      # Оранжевый
+    SetBorderColor 175 96 37 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 2 Orange Star
+
+### Rare Items ###
+Show
+    Rarity Rare
+    SetTextColor 255 255 119 255    # Желтый
+    SetBorderColor 255 255 119 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 1 Yellow Circle
+
+### Magic Items ###
+Show
+    Rarity Magic
+    SetTextColor 136 136 255 255    # Голубой
+    SetBorderColor 136 136 255 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 0 Blue Circle
+
+### Jewels ###
+Show
+    Class "Jewels"
+    SetTextColor 200 120 200 255    # Фиолетовый
+    SetBorderColor 200 120 200 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 1 Purple Diamond
+
+### Flasks ###
+Show
+    Class "Flasks"
+    SetTextColor 100 200 255 255    # Светло-синий
+    SetBorderColor 100 200 255 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 0 Blue Circle
+
+### Belts ###
+Show
+    BaseType "Belt"
+    SetTextColor 180 180 255 255    # Светло-фиолетовый
+    SetBorderColor 180 180 255 255
+    SetBackgroundColor 0 0 0 200
+    MinimapIcon 0 White Circle
+
+### Hide Normal Items ###
+Hide
+    Rarity Normal
